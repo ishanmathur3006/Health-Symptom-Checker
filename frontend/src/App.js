@@ -3,7 +3,7 @@ import Select from "react-select";
 import axios from "axios";
 import "./App.css";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://health-symptom-api.onrender.com";
 
 function formatExplanation(text) {
   if (!text) return null;
