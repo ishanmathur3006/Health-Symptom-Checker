@@ -90,7 +90,7 @@ npm start
 ## 👨‍💻 Developer
 
 **Ishan Mathur(2228027)**
-B.Tech Computer Science &Systems Engineering
+B.Tech Computer Science & Systems Engineering
 KIIT University, Bhubaneswar
 
 ---
