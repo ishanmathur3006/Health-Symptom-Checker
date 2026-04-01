@@ -265,18 +265,23 @@ body {
     gap: 8px;
   }
 
-  .progress-bar-bg {
-    width: 120px;
-  }
-
   .top3-item {
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 6px;
+    padding: 10px 0;
   }
 
   .top3-item span {
     min-width: unset !important;
     font-size: 0.9rem;
+  }
+
+  .top3-item > div {
+    width: 100%;
+  }
+
+  .progress-bar-bg {
+    width: 100% !important;
   }
 
   .symptom-tag {
