@@ -266,22 +266,32 @@ body {
   }
 
   .top3-item {
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 4px;
+  padding: 10px 0;
   }
 
   .top3-item span {
-    min-width: unset !important;
-    font-size: 0.9rem;
+  grid-column: 1;
+  grid-row: 1;
+  min-width: unset !important;
+  font-size: 0.9rem;
   }
 
   .top3-item > div {
-    width: 100%;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
   }
 
   .progress-bar-bg {
-    width: 100% !important;
+  width: 100% !important;
+  flex: 1;
   }
 
   .symptom-tag {
