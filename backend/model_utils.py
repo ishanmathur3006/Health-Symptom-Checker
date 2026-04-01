@@ -1,6 +1,21 @@
 import joblib
 import numpy as np
 
+# Fix disease name spelling errors from dataset
+DISEASE_NAME_FIXES = {
+    "Peptic ulcer diseae": "Peptic Ulcer Disease",
+    "Dimorphic hemmorhoids(piles)": "Dimorphic Hemorrhoids (Piles)",
+    "paralysis (brain hemorrhage)": "Paralysis (Brain Hemorrhage)",
+    "hepatitis A": "Hepatitis A",
+    "hepatitis B": "Hepatitis B",
+    "hepatitis C": "Hepatitis C",
+    "hepatitis D": "Hepatitis D",
+    "hepatitis E": "Hepatitis E",
+}
+
+def fix_disease_name(name: str) -> str:
+    return DISEASE_NAME_FIXES.get(name, name)
+
 # Load model artifacts
 model = joblib.load("model.pkl")
 symptoms_list = joblib.load("symptoms_list.pkl")
@@ -20,13 +35,13 @@ def predict_disease(symptoms: list[str]):
     confidence = round(float(np.max(probabilities)) * 100, 2)
 
     # Decode label
-    disease = label_encoder.inverse_transform([prediction])[0]
+    disease = fix_disease_name(label_encoder.inverse_transform([prediction])[0])
 
     # Top 3 possible diseases
     top3_indices = np.argsort(probabilities)[::-1][:3]
     top3 = [
         {
-            "disease": label_encoder.inverse_transform([i])[0],
+            "disease": fix_disease_name(label_encoder.inverse_transform([i])[0]),
             "confidence": round(float(probabilities[i]) * 100, 2)
         }
         for i in top3_indices

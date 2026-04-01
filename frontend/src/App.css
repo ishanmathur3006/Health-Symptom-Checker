@@ -225,3 +225,71 @@ body {
   align-items: center;
   gap: 8px;
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .predict-btn {
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  .disease-name {
+    font-size: 1.2rem;
+  }
+
+  .confidence-badge {
+    font-size: 0.85rem;
+    padding: 4px 12px;
+  }
+
+  .result-disease {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .progress-bar-bg {
+    width: 120px;
+  }
+
+  .top3-item {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .top3-item span {
+    min-width: unset !important;
+    font-size: 0.9rem;
+  }
+
+  .symptom-tag {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    padding: 10px 12px;
+  }
+
+  .explanation {
+    font-size: 0.9rem;
+  }
+}

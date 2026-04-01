@@ -2,7 +2,7 @@
 
 A full-stack AI-powered web application that predicts diseases based on symptoms using Machine Learning and provides detailed explanations using Large Language Models (LLM).
 
-🔗 **Live Demo:** https://ai-health-symptom-checker-two.vercel.app
+🔗 **Live Demo:** <https://ai-health-symptom-checker-two.vercel.app>
 
 ---
 
@@ -31,6 +31,7 @@ A full-stack AI-powered web application that predicts diseases based on symptoms
 ---
 
 ## 🏗️ Architecture
+
 ```
 User → React Frontend → FastAPI Backend → ML Model (prediction)
                                         → Groq LLM (explanation)
@@ -39,6 +40,7 @@ User → React Frontend → FastAPI Backend → ML Model (prediction)
 ---
 
 ## 📁 Project Structure
+
 ```
 health-symptom-checker/
 ├── backend/
@@ -61,6 +63,7 @@ health-symptom-checker/
 ## ⚙️ Local Setup
 
 ### Backend
+
 ```bash
 cd backend
 python -m venv venv
@@ -70,6 +73,7 @@ uvicorn main:app --reload
 ```
 
 ### Frontend
+
 ```bash
 cd frontend
 npm install
