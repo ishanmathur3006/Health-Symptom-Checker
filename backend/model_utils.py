@@ -1,5 +1,6 @@
-import joblib
-import numpy as np
+import joblib 
+import numpy as np 
+import pandas as pd
 
 # Fix disease name spelling errors from dataset
 DISEASE_NAME_FIXES = {
@@ -24,8 +25,6 @@ label_encoder = joblib.load("label_encoder.pkl")
 def predict_disease(symptoms: list[str]):
     # Create input vector
     # NEW - fixes the warning
-    import pandas as pd
-
     input_vector = [1 if s in symptoms else 0 for s in symptoms_list]
     input_df = pd.DataFrame([input_vector], columns=symptoms_list)
 

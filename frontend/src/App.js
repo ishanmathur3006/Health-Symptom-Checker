@@ -34,8 +34,10 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const resultRef = useRef(null);
-
+  const [symptomsLoading, setSymptomsLoading] = useState(true);
+  
   useEffect(() => {
+    setSymptomsLoading(true);
     axios.get(`${API_BASE}/symptoms`)
       .then(res => {
         const options = res.data.symptoms.map(s => ({
@@ -43,8 +45,11 @@ function App() {
           label: s.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase())
         }));
         setAllSymptoms(options);
+        setSymptomsLoading(false);
       })
-      .catch(() => setError("Could not connect to backend. Make sure it's running on port 8000."));
+      .catch(() => {
+        setError("Service is waking up... Please wait 30 seconds and refresh.");setSymptomsLoading(false);
+      });
   }, []);
 
   const removeSymptom = (symptom) => {
@@ -112,9 +117,10 @@ function App() {
               setError("");
             }
           }}
-          placeholder="Search and select a symptom..."
+          placeholder={symptomsLoading ? "⏳ Loading symptoms..." : "Search and select a symptom..."}
           value={null}
           isSearchable
+          isDisabled={symptomsLoading}
         />
 
         {selectedSymptoms.length > 0 && (
