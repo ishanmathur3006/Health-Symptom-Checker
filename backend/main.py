@@ -3,6 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from model_utils import predict_disease, get_all_symptoms
 from groq_utils import get_disease_explanation
+from fastapi import FastAPI, Response
+
+@app.head("/")
+def root_head():
+    return Response(status_code=200)
 
 app = FastAPI(title="Health Symptom Checker API")
 
