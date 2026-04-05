@@ -5,10 +5,6 @@ from model_utils import predict_disease, get_all_symptoms
 from groq_utils import get_disease_explanation
 from fastapi import FastAPI, Response
 
-@app.head("/")
-def root_head():
-    return Response(status_code=200)
-
 app = FastAPI(title="Health Symptom Checker API")
 
 # Allow React frontend to call this API
@@ -22,6 +18,10 @@ app.add_middleware(
 
 class SymptomsInput(BaseModel):
     symptoms: list[str]
+
+@app.head("/")
+def root_head():
+    return Response(status_code=200)
 
 @app.get("/")
 def root():
